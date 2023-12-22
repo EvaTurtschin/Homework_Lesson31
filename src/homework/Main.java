@@ -32,14 +32,18 @@ public class Main {
         rectangle2.calculateFigurePerimeter();
         System.out.println();
 
-       System.out.println("Aggregated Area of all this figures = "
-               +(String.format("%.2f",aggregateArea(rectangle1,rectangle2,circle1,circle2))));
-    }
-    public static double aggregateArea (Shape rectangle1, Shape rectangle2,
-                                Shape circle1, Shape circle2){
+        Shape [] shapes = {circle1, circle2,rectangle1,rectangle2};
 
-        return circle1.calculateFigureArea()+ circle2.calculateFigureArea()+
-                rectangle1.calculateFigureArea()+ rectangle2.calculateFigureArea();
+       System.out.println("Aggregated Area of all this figures = "
+               +(String.format("%.2f",aggregateArea(shapes))));
+    }
+    public static double aggregateArea (Shape[]shapes){
+
+        double result = 0;
+        for (Shape shape : shapes){
+            result+= shape.calculateFigureArea();
+        }
+        return result;
     }}
 
 
